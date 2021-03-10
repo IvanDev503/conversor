@@ -22,28 +22,14 @@ $(function () {
   // Set up events for the file inputs
 
   var file = null;
-
+  var filelist = null;
   $("#step2").on("change", "#encrypt-input", function (e) {
     // Has a file been selected?
-
-    /*    if (e.target.files.length != 1) {
-      alert("Please select a file to encrypt!");
-      return false;
-    } */
-    var filelist = e.target.files;
+    filelist = e.target.files;
 
     for (var i = 0; i < filelist.length; i++) {
       file = e.target.files[i];
-      console.log(file);
     }
-
-    /* 
-    if (file.size > 1024 * 1024) {
-      alert(
-        "Please choose files smaller than 1mb, otherwise you may crash your browser. \nThis is a known issue. See the tutorial."
-      );
-      return;
-    } */
 
     step(3);
   });
@@ -58,26 +44,27 @@ $(function () {
 
     if (body.hasClass("encrypt")) {
       // Encrypt the file!
+      for (var i = 0; i < filelist.length; i++) {
+        reader.onload = function (e) {
+          console.log(e);
+          // The download attribute will cause the contents of the href
+          // attribute to be downloaded when clicked. The download attribute
+          // also holds the name of the file that is offered for download.
+          var encrypted = escape(e.target.result);
+          console.log(encrypted);
 
-      reader.onload = function (e) {
-        // Use the CryptoJS library and the AES cypher to encrypt the
-        // contents of the file, held in e.target.result, with the password
-        //resultList = e.target.result;
-        var encrypted = document.write(escape(e.target.result));
+          a.attr("href", "data:application/octet-stream," + encrypted);
+          a.attr("download", file.name);
+          //console.log(file.name);
 
-        // The download attribute will cause the contents of the href
-        // attribute to be downloaded when clicked. The download attribute
-        // also holds the name of the file that is offered for download.
-        a.attr("href", "data:application/octet-stream," + encrypted);
-        a.attr("download", file.name);
-
-        step(4);
-      };
+          step(4);
+        };
+      }
 
       // This will encode the contents of the file into a data-uri.
       // It will trigger the onload handler above, with the result
 
-      console.log("File 2 : " + JSON.stringify(file));
+      //console.log("File 2 : " + JSON.stringify(file));
       //reader.readAsDataURL(file);
       reader.readAsText(file);
     }
