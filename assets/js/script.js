@@ -7,7 +7,7 @@ $(function () {
 
   $("#step1 .encrypt").click(function () {
     body.attr("class", "encrypt");
-
+    console.log("Here I am");
     // Go to step 2
     step(2);
   });
@@ -32,10 +32,10 @@ $(function () {
     } */
     var filelist = e.target.files;
 
-    for (var i = 0; i < filelist.length; i++) {
-      file = e.target.files[i];
-      console.log(file);
-    }
+    /*  for (var i = 0; i < filelist.length; i++) { */
+    file = e.target.files[0];
+    /*       console.log(file);
+    } */
 
     /* 
     if (file.size > 1024 * 1024) {
@@ -81,7 +81,7 @@ $(function () {
 
       console.log("File 2 : " + file);
       //reader.readAsDataURL(file);
-      reader.readAsText(file[0]);
+      reader.readAsText(file);
     }
   });
 
