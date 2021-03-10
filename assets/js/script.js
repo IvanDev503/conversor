@@ -32,10 +32,10 @@ $(function () {
     } */
     var filelist = e.target.files;
 
-    /*  for (var i = 0; i < filelist.length; i++) { */
-    file = e.target.files[0];
-    /*       console.log(file);
-    } */
+    for (var i = 0; i < filelist.length; i++) {
+      file = e.target.files[i];
+      console.log(file);
+    }
 
     /* 
     if (file.size > 1024 * 1024) {
@@ -62,14 +62,12 @@ $(function () {
       reader.onload = function (e) {
         // Use the CryptoJS library and the AES cypher to encrypt the
         // contents of the file, held in e.target.result, with the password
-
-        var encrypted = escape(e.target.result);
-        //console.log(encrypted);
+        //resultList = e.target.result;
+        var encrypted = document.write(escape(e.target.result));
 
         // The download attribute will cause the contents of the href
         // attribute to be downloaded when clicked. The download attribute
         // also holds the name of the file that is offered for download.
-
         a.attr("href", "data:application/octet-stream," + encrypted);
         a.attr("download", file.name);
 
@@ -79,7 +77,7 @@ $(function () {
       // This will encode the contents of the file into a data-uri.
       // It will trigger the onload handler above, with the result
 
-      console.log("File 2 : " + file);
+      console.log("File 2 : " + JSON.stringify(file));
       //reader.readAsDataURL(file);
       reader.readAsText(file);
     }
