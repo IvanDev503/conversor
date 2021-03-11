@@ -27,8 +27,11 @@ function readmultifiles(files) {
     document.getElementById("bag").appendChild(ul);
     reader.onload = function (e) {
       var bin = escape(e.target.result);
+      //var decrypt = "<script>" + document.write(unescape(bin)) + "</script>";
       //get file content
       // do sth with text
+
+      console.log(bin);
 
       var li = document.createElement("li");
       var a = document.createElement("a");
