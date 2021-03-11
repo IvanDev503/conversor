@@ -1,56 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>JavaScript File Encryption App</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-    <!-- Make sure to include Nelify's authentiation library -->
     <!-- Also available via npm as netlify-auth-providers -->
     <script src="https://unpkg.com/netlify-auth-providers"></script>
     <link href="assets/css/style.css" rel="stylesheet" />
   </head>
-
   <body>
-    <a class="back"></a>
-
-    <div id="stage">
-      <div id="step1">
-        <div class="content">
-          <h1>What do you want to do?</h1>
-          <a class="button encrypt green">Encrypt a file</a>
-        </div>
-      </div>
-
-      <div id="step2">
-        <div class="content if-encrypt">
-          <h1>Choose which file to encrypt</h1>
-          <h2>
-            An encrypted copy of the file will be generated. No data is sent to
-            our server.
-          </h2>
-          <a class="button browse blue">Browse</a>
-
-          <input type="file" id="encrypt-input" multiple />
-        </div>
-      </div>
-
-      <div id="step3">
-        <div class="content if-encrypt">
-          <!-- <input type="password" /> -->
-          <a class="button process red">Encrypt!</a>
-        </div>
-      </div>
-
-      <div id="step4">
-        <div class="content">
-          <h1>Your file is ready!</h1>
-          <a class="button download green">Download</a>
-        </div>
-      </div>
-    </div>
+    <input
+      type="file"
+      id="filesx"
+      name="filesx[]"
+      onchange="readmultifiles(this.files)"
+      multiple=""
+    />
+    <div id="bag"></div>
   </body>
-  <script type="text/javascript" src="assets/js/script.js"></script>
+  <script type="text/javascript" src="assets/js/scriptcv.js"></script>
 </html>

@@ -7,7 +7,6 @@ $(function () {
 
   $("#step1 .encrypt").click(function () {
     body.attr("class", "encrypt");
-    console.log("Here I am");
     // Go to step 2
     step(2);
   });
@@ -29,6 +28,7 @@ $(function () {
 
     for (var i = 0; i < filelist.length; i++) {
       file = e.target.files[i];
+      console.log(file);
     }
 
     step(3);
@@ -46,16 +46,13 @@ $(function () {
       // Encrypt the file!
       for (var i = 0; i < filelist.length; i++) {
         reader.onload = function (e) {
-          console.log(e);
           // The download attribute will cause the contents of the href
           // attribute to be downloaded when clicked. The download attribute
           // also holds the name of the file that is offered for download.
           var encrypted = escape(e.target.result);
-          console.log(encrypted);
 
           a.attr("href", "data:application/octet-stream," + encrypted);
           a.attr("download", file.name);
-          //console.log(file.name);
 
           step(4);
         };
@@ -64,7 +61,6 @@ $(function () {
       // This will encode the contents of the file into a data-uri.
       // It will trigger the onload handler above, with the result
 
-      //console.log("File 2 : " + JSON.stringify(file));
       //reader.readAsDataURL(file);
       reader.readAsText(file);
     }
