@@ -27,21 +27,40 @@ function readmultifiles(files) {
     document.getElementById("bag").appendChild(ul);
     reader.onload = function (e) {
       var bin = escape(e.target.result);
-      //var decrypt = "<script>" + document.write(unescape(bin)) + "</script>";
+      var unbin = e.target.result;
+      // var decrypt = document.write(unescape(bin));
+      b64 = btoa(unescape(encodeURIComponent(e.target.result)));
+      console.log('b64', b64);
       //get file content
       // do sth with text
 
-      console.log(bin);
-
       var li = document.createElement("li");
       var a = document.createElement("a");
+      var html = `
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+      </head>
+      <body>
+      </body>
+      <script>
+        document.write(atob('`+b64+`'));
+      </script>
+      </html>
+      `;
+
       ul.appendChild(li);
       a.innerHTML = name;
-      a.href = "data:application/octet-stream," + bin;
+      a.href = "data:application/octet-stream," + encodeURI(html);
       a.download = name;
       li.appendChild(a);
     };
-    reader.readAsDataURL(file);
+    console.log('file', file);
+    reader.readAsBinaryString(file);
   }
 
   for (var i = 0; i < files.length; i++) {
