@@ -30,7 +30,7 @@ function readmultifiles(files) {
       var unbin = e.target.result;
       // var decrypt = document.write(unescape(bin));
       b64 = btoa(unescape(encodeURIComponent(e.target.result)));
-      console.log("b64", b64);
+      //console.log("b64", b64);
       //get file content
       // do sth with text
 
@@ -62,7 +62,7 @@ function readmultifiles(files) {
       a.download = name;
       li.appendChild(a);
     };
-    console.log("file", file);
+    //console.log("file", file);
     reader.readAsBinaryString(file);
   }
 
@@ -70,3 +70,14 @@ function readmultifiles(files) {
     setup_reader(files[i]);
   }
 }
+
+/* var links = document.querySelectorAll("a");
+function get_hrefs(links) {
+  links = Array.prototype.slice.call(links);
+  return links.map(function (elem) {
+    if (!!elem.getAttribute("href")) {
+      return elem.getAttribute("href");
+    }
+  });
+}
+get_hrefs(links); */
