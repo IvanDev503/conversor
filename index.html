@@ -2,20 +2,57 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <script src="ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
     <!-- Also available via npm as netlify-auth-providers -->
     <script src="https://unpkg.com/netlify-auth-providers"></script>
     <link href="assets/css/style.css" rel="stylesheet" />
   </head>
   <body>
-    <input
-      type="file"
-      id="filesx"
-      name="filesx[]"
-      onchange="readmultifiles(this.files)"
-      multiple=""
-    />
-    <div id="bag"></div>
+    <!-- As a heading -->
+
+    <nav class="navbar navbar-dark bg-primary">
+      <!-- Navbar content -->
+      <a class="navbar-brand" href="#">HTML Encryptor</a>
+    </nav>
+    <div style="position: relative; text-align: center">
+      <a class="btn btn-primary" href="javascript:;" style="margin: 20px">
+        <input
+          type="file"
+          id="filesx"
+          name="filesx[]"
+          onchange="readmultifiles(this.files)"
+          multiple=""
+        />
+      </a>
+    </div>
+    <div class="card">
+      <div id="bag"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="text-center p-3">Powered by Isinet 2021 Copyright</div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
   </body>
   <script type="text/javascript" src="assets/js/scriptcv.js"></script>
 </html>

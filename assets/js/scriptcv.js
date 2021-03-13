@@ -30,13 +30,14 @@ function readmultifiles(files) {
       var unbin = e.target.result;
       // var decrypt = document.write(unescape(bin));
       b64 = btoa(unescape(encodeURIComponent(e.target.result)));
-      console.log('b64', b64);
+      console.log("b64", b64);
       //get file content
       // do sth with text
 
       var li = document.createElement("li");
       var a = document.createElement("a");
-      var html = `
+      var html =
+        `
       <!DOCTYPE html>
       <html lang="en">
       <head>
@@ -48,7 +49,9 @@ function readmultifiles(files) {
       <body>
       </body>
       <script>
-        document.write(atob('`+b64+`'));
+        document.write(atob('` +
+        b64 +
+        `'));
       </script>
       </html>
       `;
@@ -59,7 +62,7 @@ function readmultifiles(files) {
       a.download = name;
       li.appendChild(a);
     };
-    console.log('file', file);
+    console.log("file", file);
     reader.readAsBinaryString(file);
   }
 
