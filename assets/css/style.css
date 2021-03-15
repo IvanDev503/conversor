@@ -16,6 +16,11 @@ html {
 }
 li {
   margin: 15px;
+  background-color: aliceblue;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 a,
 a:visited {
@@ -75,6 +80,16 @@ a.back {
 
 a.back:hover {
   opacity: 1;
+}
+
+#bag {
+  display: grid;
+  grid-template-columns: repeat(6, 220px);
+  grid-template-rows: repeat(15,65px);
+  left:0px;
+  right:0px;
+  overflow:auto;
+  margin-bottom: 15px;
 }
 
 /*-------------------------
@@ -186,7 +201,8 @@ body.decrypt .if-decrypt {
 footer {
   font: normal 16px Arial, Helvetica, sans-serif;
   padding: 15px 35px;
-  position: fixed;
+  position:absolute;
+  overflow: hidden;
   bottom: 0;
   width: 100%;
 
@@ -205,3 +221,4 @@ footer {
   height: 70%;
   padding: auto;
 }
+
