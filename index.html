@@ -28,13 +28,17 @@
   <body>
     <!-- As a heading -->
 
-    <nav class="navbar navbar-dark bg-primary">
+    <nav class="navbar" style="background-color: transparent">
       <!-- Navbar content -->
-      <a class="navbar-brand" href="#">HTML Encryptor</a>
+      <img src="./assets/img/TheWorldWithTOC-Logo-89x39.png" />
     </nav>
 
     <div style="position: relative; text-align: center">
-      <a class="btn btn-primary" href="javascript:;" style="margin: 20px">
+      <a
+        class="btn"
+        href="javascript:;"
+        style="margin: 20px; border: solid 1px #9c9e9f"
+      >
         <input
           type="file"
           id="filesx"
@@ -43,10 +47,13 @@
           multiple=""
         />
       </a>
-      <a class="btn btn-primary" href="javascript:location.reload(true)"
+      <a
+        class="btn toc-style"
+        style="color: white"
+        href="javascript:location.reload(true)"
         >Reset</a
       >
-      <button class="btn btn-primary">Descargar</button>
+      <button class="btn toc-style">Descargar</button>
     </div>
     <div class="card">
       <div id="bag"></div>

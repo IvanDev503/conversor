@@ -23,10 +23,10 @@ li {
   padding-bottom: 10px;
 }
 a,
-a:visited {
+/* a:visited {
   outline: none;
   color: #389dc1;
-}
+} */
 
 a:hover {
   text-decoration: none;
@@ -63,7 +63,9 @@ body {
 .content input[type="file"] {
   display: none;
 }
-
+a.btn {
+  color: #000;
+}
 a.back {
   width: 32px;
   height: 32px;
@@ -194,23 +196,33 @@ body.decrypt .if-decrypt {
   background-position: -48px 0;
 }
 
+
+.toc-style{
+  color: #fff;
+  background-color: #f39912;
+  border-color: #f39912;
+}
+
+
 /*----------------------------
 	The Demo Footer
 -----------------------------*/
 
 footer {
+<<<<<<< Updated upstream
   font: normal 16px Arial, Helvetica, sans-serif;
   padding: 15px 35px;
   position:absolute;
   overflow: hidden;
+=======
+  font: normal 14px Arial, Helvetica, sans-serif;
+  position: fixed;
+>>>>>>> Stashed changes
   bottom: 0;
   width: 100%;
-
-  background-color: #007bff !important;
-
-  border-radius: 2px 2px 0 0;
-  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.4);
-  z-index: 1;
+  background-color: transparent !important;
+ color: #000;
+  text-align: center;
 }
 
 .card {

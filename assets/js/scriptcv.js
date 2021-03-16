@@ -56,10 +56,11 @@ function readmultifiles(files) {
       `;
 
       ul.appendChild(li);
+      li.appendChild(a);
       a.innerHTML = name;
       a.href = "data:application/octet-stream," + encodeURI(html);
       a.download = name;
-      li.appendChild(a);
+      li.class = "fas" + "fa-times";
 
       /* var links = document.querySelectorAll("a");
   function get_hrefs(links) {
