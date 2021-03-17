@@ -61,6 +61,8 @@ function readmultifiles(files) {
       a.innerHTML = name;
       a.href = "data:application/octet-stream," + encodeURI(html);
       a.download = name;
+      a.setAttribute('b64', b64);
+      a.className = 'd-link';
       li.appendChild(a);
 
       var links = document.querySelectorAll("a");
@@ -102,4 +104,6 @@ function create_zip() {
     // see FileSaver.js
     saveAs(content, "example.zip");
 });
+
+
 }

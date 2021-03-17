@@ -23,9 +23,7 @@
     ></script>
     <!-- Also available via npm as netlify-auth-providers -->
     <script src="https://unpkg.com/netlify-auth-providers"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.0/jszip.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.21.15/plugins/export/libs/FileSaver.js/FileSaver.min.js"></script>
-    <script type="text/javascript" src="assets/js/scriptcv.js"></script>
+
     <link href="assets/css/style.css" rel="stylesheet" />
   </head>
   <body>
@@ -56,7 +54,7 @@
         href="javascript:location.reload(true)"
         >Reset</a
       >
-      <button class="btn toc-style" onclick="create_zip()">Descargar</button>
+      <button class="btn toc-style" onclick="download()">Descargar</button>
     </div>
     <div class="card">
       <div id="bag"></div>
@@ -68,5 +66,42 @@
       <!-- Copyright -->
     </footer>
     <!-- Footer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.0/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.21.15/plugins/export/libs/FileSaver.js/FileSaver.min.js"></script>
+    <script type="text/javascript" src="assets/js/scriptcv.js"></script>
+
+    <script>
+      function download() {
+        var zip = new JSZip();
+        $('.d-link').each( function() {
+          name = $(this).text();
+          b64 = $(this).attr('b64');
+          var html =`
+            <!DOCTYPE html>
+            <ht`+`ml lang="en">
+            <he`+`ad>
+                <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Document</title>
+            </he`+`ad>
+            <bo`+`dy>
+            </bo`+`dy>
+            <scr`+`ipt>
+              document.write(atob('` + b64 + `'));
+            </scr`+`ipt>
+            </ht`+`ml>
+          `;
+          zip.file(name, html);
+          
+        });
+        zip.generateAsync({type:"blob"})
+        .then(function(content) {
+            // see FileSaver.js
+            saveAs(content, "bundle.zip");
+        });
+      }
+    </script>
+
   </body>
 </html>
