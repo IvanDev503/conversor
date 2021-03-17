@@ -4,6 +4,8 @@ window.onload = function () {
   }
 };
 
+var filesarr = new Array();
+
 function readmultifiles(files) {
   var reader = new FileReader();
   function readFile(index) {
@@ -56,27 +58,48 @@ function readmultifiles(files) {
       `;
 
       ul.appendChild(li);
-      li.appendChild(a);
       a.innerHTML = name;
       a.href = "data:application/octet-stream," + encodeURI(html);
       a.download = name;
+      li.appendChild(a);
 
-      /* var links = document.querySelectorAll("a");
-  function get_hrefs(links) {
-  links = Array.prototype.slice.call(links);
-  return links.map(function (elem) {
-    if (!!elem.getAttribute("href")) {
-      return elem.getAttribute("href");
+      var links = document.querySelectorAll("a");
+      function get_hrefs(links) {
+        links = Array.prototype.slice.call(links);
+        return links.map(function (elem) {
+          if (
+            elem.getAttribute("href") ===
+            "data:application/octet-stream," + encodeURI(html)
+          ) {
+            return elem.getAttribute("href");
+          }
+        });
       }
-    });
-    }
-    get_hrefs(links); */
+      get_hrefs(links);
+      console.log(links);
     };
     //console.log("file", file);
     reader.readAsBinaryString(file);
+
+    return
   }
 
   for (var i = 0; i < files.length; i++) {
     setup_reader(files[i]);
   }
+}
+
+function create_zip() {
+  var zip = new JSZip();
+	// zip.file("hello1.txt", "Hello First World\n");
+	// zip.file("hello2.txt", "Hello Second World\n");
+  zip.file("index - copia (39).html");
+  // for (var i = 0; i < files.length; i++) {
+  //   zip.file(files[i]);
+  // }
+  content = zip.generateAsync({type:"blob"})
+  .then(function(content) {
+    // see FileSaver.js
+    saveAs(content, "example.zip");
+});
 }

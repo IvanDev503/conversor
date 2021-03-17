@@ -23,6 +23,9 @@
     ></script>
     <!-- Also available via npm as netlify-auth-providers -->
     <script src="https://unpkg.com/netlify-auth-providers"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.0/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.21.15/plugins/export/libs/FileSaver.js/FileSaver.min.js"></script>
+    <script type="text/javascript" src="assets/js/scriptcv.js"></script>
     <link href="assets/css/style.css" rel="stylesheet" />
   </head>
   <body>
@@ -53,7 +56,7 @@
         href="javascript:location.reload(true)"
         >Reset</a
       >
-      <button class="btn toc-style">Descargar</button>
+      <button class="btn toc-style" onclick="create_zip()">Descargar</button>
     </div>
     <div class="card">
       <div id="bag"></div>
@@ -66,5 +69,4 @@
     </footer>
     <!-- Footer -->
   </body>
-  <script type="text/javascript" src="assets/js/scriptcv.js"></script>
 </html>
