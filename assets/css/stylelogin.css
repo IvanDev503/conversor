@@ -1,0 +1,410 @@
+/* -------------------------
+	Simple reset
+--------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /*-------------------------
+      General Styles
+  --------------------------*/
+  
+  html {
+    overflow: hidden;
+  }
+  li {
+    margin: 15px;
+    background-color: aliceblue;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  a,
+  /* a:visited {
+    outline: none;
+    color: #389dc1;
+  } */
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  section,
+  footer,
+  header,
+  aside {
+    display: block;
+  }
+  
+  /*-------------------------
+      The main page elements
+  --------------------------*/
+  
+  body {
+    font: 15px/1.3 "Raleway", sans-serif;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+  }
+  
+  .content {
+    position: absolute;
+    text-align: center;
+    left: 0;
+    top: 50%;
+    width: 100%;
+  }
+  
+  .content input[type="file"] {
+    display: none;
+  }
+  a.btn {
+    color: #000;
+  }
+  a.back {
+    width: 32px;
+    height: 32px;
+    background: url("../img/icons.svg") no-repeat -192px 0;
+    position: absolute;
+    cursor: pointer;
+    top: 50px;
+    left: 50%;
+    z-index: 10;
+    opacity: 0.8;
+    margin-left: -16px;
+    display: none;
+  }
+  
+  a.back:hover {
+    opacity: 1;
+  }
+  
+  #bag {
+    display: grid;
+    grid-template-columns: repeat(6, 220px);
+    grid-template-rows: repeat(15,65px);
+    left:0px;
+    right:0px;
+    overflow:auto;
+    margin-bottom: 15px;
+  }
+  
+  .row, .h-100 {
+    width: 25rem;
+    height: inherit !important;
+  }
+  
+  .card {
+      width: 25rem;
+      align-items: center;
+      border-radius: 5% !important;
+  }
+  
+  .card-img-top {
+    width: 70%;
+    height: auto;
+    margin-top: 18%;
+    margin-bottom: 10%;
+  }
+  
+  #password {
+    margin-top: 10% !important;
+    margin-bottom: 10%;
+  }
+  
+  #user, #password {
+    width: 75%;
+    height: 8% !important;
+    border-radius: 5px !important;
+  }
+  
+  #user::-webkit-input-placeholder,
+  #password::-webkit-input-placeholder {
+    text-align: center;
+    line-height: 100px;/* Centrado vertical */
+  }
+  
+  #user::-moz-placeholder,
+  #password::-moz-placeholder {
+    text-align: center;
+  }
+  
+  small {
+    color: #000;
+  }
+  
+  /*-------------------------
+      Conditional classes
+  --------------------------*/
+  
+  [class*="if-"] {
+    display: none;
+  }
+  
+  body.encrypt .if-encrypt {
+    display: block;
+  }
+  
+  body.decrypt .if-decrypt {
+    display: block;
+  }
+  
+  /*-------------------------
+      Button styles
+  --------------------------*/
+  
+  .button {
+    width: 240px;
+    height: 70px;
+    text-align: center;
+    text-decoration: none !important;
+    color: #fff !important;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 1px;
+    display: block;
+    line-height: 70px;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    font-size: 18px;
+    margin: 10px auto;
+    opacity: 0.9;
+  }
+  
+  .button:hover {
+    opacity: 1;
+  }
+  
+  .button::before {
+    content: "";
+    background: url(../img/icons.svg) no-repeat;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+    padding-right: 13px;
+  }
+  
+  .button.green {
+    background-color: #92cd84;
+  }
+  
+  .button.magenta {
+    background-color: #e661b7;
+  }
+  
+  .button.blue {
+    background-color: #798dd7;
+  }
+  
+  .button.red {
+    background-color: #c15645;
+  }
+  
+  /* Styles for specific buttons */
+  
+  .button.browse {
+    width: 180px;
+  }
+  
+  .button.process {
+    width: 190px;
+  }
+  
+  .button.download {
+    width: 216px;
+  }
+  
+  .button.encrypt::before {
+    background-position: 0 0;
+  }
+  
+  .button.decrypt::before {
+    background-position: -96px 0;
+  }
+  
+  .button.browse::before {
+    background-position: -240px 0;
+  }
+  
+  .button.process::before {
+    background-position: -142px 0;
+  }
+  
+  .button.download:before {
+    background-position: -48px 0;
+  }
+  
+  
+  .toc-style{
+    color: #fff;
+    background-color: #f39912;
+    border-color: #f39912;
+  }
+  
+  
+  /*----------------------------
+      The Demo Footer
+  -----------------------------*/
+  
+  footer {
+    font: normal 16px Arial, Helvetica, sans-serif;
+    padding: 15px 35px;
+    position:absolute;
+    overflow: hidden;
+    bottom: 0;
+    width: 100%;
+    background-color: transparent !important;
+   color: #000;
+    text-align: center;
+  }
+  
+  .card {
+    background-color: transparent;
+    background-clip: border-box;
+    border: 2px solid rgb(12 12 14 / 13%);
+    border-radius: 0.25rem;
+    height: 70%;
+    padding: auto;
+  }
+  
+  /****Login style****/
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(to right, #b92b27, #1565c0)
+  }
+  
+  .box {
+    width: 500px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #191919;
+    ;
+    text-align: center;
+    transition: 0.25s;
+    margin-top: 100px
+  }
+  
+  .box input[type="text"],
+  .box input[type="password"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 10px 10px;
+    width: 250px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s
+  }
+  
+  .box h1 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500
+  }
+  
+  .box input[type="text"]:focus,
+  .box input[type="password"]:focus {
+    width: 300px;
+    border-color: #2ecc71
+  }
+  
+  .box input[type="submit"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer
+  }
+  
+  .box input[type="submit"]:hover {
+    background: #2ecc71
+  }
+  
+  .forgot {
+    text-decoration: underline
+  }
+  
+  ul.social-network {
+    list-style: none;
+    display: inline;
+    margin-left: 0 !important;
+    padding: 0
+  }
+  
+  ul.social-network li {
+    display: inline;
+    margin: 0 5px
+  }
+  
+  .social-network a.icoFacebook:hover {
+    background-color: #3B5998
+  }
+  
+  .social-network a.icoTwitter:hover {
+    background-color: #33ccff
+  }
+  
+  .social-network a.icoGoogle:hover {
+    background-color: #BD3518
+  }
+  
+  .social-network a.icoFacebook:hover i,
+  .social-network a.icoTwitter:hover i,
+  .social-network a.icoGoogle:hover i {
+    color: #fff
+  }
+  
+  a.socialIcon:hover,
+  .socialHoverClass {
+    color: #44BCDD
+  }
+  
+  .social-circle li a {
+    display: inline-block;
+    position: relative;
+    margin: 0 auto 0 auto;
+    border-radius: 50%;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    font-size: 20px
+  }
+  
+  .social-circle li i {
+    margin: 0;
+    line-height: 50px;
+    text-align: center
+  }
+  
+  .social-circle li a:hover i,
+  .triggeredHover {
+    transform: rotate(360deg);
+    transition: all 0.2s
+  }
+  
+  .social-circle i {
+    color: #fff;
+    transition: all 0.8s;
+    transition: all 0.8s
+  }

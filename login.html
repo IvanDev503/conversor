@@ -11,21 +11,31 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    <link href="assets/css/stylelogin.css" rel="stylesheet" />
 
     <title>Login</title>
   </head>
   <body>
-    <div class="card bg-dark text-white">
-    <input type="text" value="" id="user" />
-    <input type="password" value="" id="password" />
-    <input type="button" onclick="authenticate()" value="login" /><br />
-  </div>
-    <small
+    <div class="row h-100 mx-auto ">
+      <div class="card bg-dark text-white col-sm-12 my-auto">
+        <img class="card-img-top" src="./assets/img/TheWorldWithTOC-Logo-89x39.png" alt="Card image cap">
+        <input type="text" value="" id="user" placeholder="Usuario"/>
+        <input type="password" value="" id="password" placeholder="Contraseña"/>
+        <input type="button"  class="btn toc-style" onclick="authenticate()" value="Login" /><br />
+      </div>
+      <small 
       >Lets Try <br />
       user: apptest
       <br />
       password: @105$72f79
-    </small>
+      </small>
+    </div>
+    <!-- <small 
+      >Lets Try <br />
+      user: apptest
+      <br />
+      password: @105$72f79
+    </small> -->
   </body>
   <script type="text/javascript" src="assets/js/login.js"></script>
 </html>
