@@ -215,9 +215,10 @@ footer {
   overflow: hidden;
   bottom: 0;
   width: 100%;
-  background-color: transparent !important;
- color: #000;
+  background-color: #fbfbfb !important;
+  color: #000;
   text-align: center;
+  border: 2px solid rgb(12 12 14 / 13%);
 }
 
 .card {
