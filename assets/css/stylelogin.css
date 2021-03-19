@@ -125,6 +125,7 @@
     width: 75%;
     height: 8% !important;
     border-radius: 5px !important;
+    text-align: center;
   }
   
   #user::-webkit-input-placeholder,
