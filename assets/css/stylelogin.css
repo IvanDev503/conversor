@@ -94,6 +94,10 @@
     margin-bottom: 15px;
   }
   
+  /*-------------------------
+      Login card
+  --------------------------*/
+
   .row, .h-100 {
     width: 25rem;
     height: inherit !important;

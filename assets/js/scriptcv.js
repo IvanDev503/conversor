@@ -4,8 +4,6 @@ window.onload = function () {
   }
 };
 
-var filesarr = new Array();
-
 function readmultifiles(files) {
   var reader = new FileReader();
   function readFile(index) {
@@ -51,19 +49,27 @@ function readmultifiles(files) {
       </body>
       <script>
         document.write(atob('` +
-        b64 +
+        b64 + 
         `'));
       </script>
       </html>
       `;
 
       ul.appendChild(li);
-      a.innerHTML = name;
+      a.innerHTML = name + '<button class="ctimes">&times</button>';
       a.href = "data:application/octet-stream," + encodeURI(html);
       a.download = name;
       a.setAttribute('b64', b64);
       a.className = 'd-link';
       li.appendChild(a);
+
+      // Función para eliminar archivos individuales
+      $(document).ready(function(){
+        $( ".ctimes" ).click(function(e) {
+          e.preventDefault();
+          $(this).parent().parent().parent().remove();
+        });
+      });
 
       var links = document.querySelectorAll("a");
       function get_hrefs(links) {
@@ -104,6 +110,7 @@ function create_zip() {
     // see FileSaver.js
     saveAs(content, "example.zip");
 });
+
 
 
 }

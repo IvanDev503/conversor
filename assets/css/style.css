@@ -203,6 +203,17 @@ body.decrypt .if-decrypt {
   border-color: #f39912;
 }
 
+/* Estilo para botón de borrado individual de archivos */
+.ctimes {
+  width: 20px;
+  height: 20px;
+  color: white;
+  border: solid 1px #64b5f6;
+  background: #2196f3;
+  border-radius: 4px;
+  margin-left: 5px;
+  margin-right: -5px;
+}
 
 /*----------------------------
 	The Demo Footer
