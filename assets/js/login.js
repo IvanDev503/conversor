@@ -1,14 +1,9 @@
 var loggedIn = false;
-var status;
 
 function authenticate() {
   var user = document.getElementById("user").value;
   var password = document.getElementById("password").value;
   loggedIn = login(user, password);
-  if(this.status === true){
-    console.log("Hi! my dear dev! I'm so happy to be created by you! Love U! :3")
-    nextPage();
-  }
 }
 
 function login(user, password) {
@@ -24,7 +19,9 @@ function login(user, password) {
     url: url,
     data: JSON.stringify(dataLogin),
     success: function(response){
-      this.status = response.success;
+      if(response.success === true){
+        nextPage();
+      }
     },
     contentType: "application/json; charset=utf-8",
     dataType: "json",
@@ -32,5 +29,6 @@ function login(user, password) {
 }
 
 function nextPage(){
-  window.location.origin + '/dashboard.html';
+  var location = window.location.origin + '/dashboard.html';
+  console.log(location);
 }
