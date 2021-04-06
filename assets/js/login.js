@@ -5,7 +5,9 @@ function authenticate() {
   var user = document.getElementById("user").value;
   var password = document.getElementById("password").value;
   loggedIn = login(user, password);
-  nextPage();
+  if(this.status === true){
+    nextPage();
+  }
 }
 
 function login(user, password) {
@@ -21,9 +23,7 @@ function login(user, password) {
     url: url,
     data: JSON.stringify(dataLogin),
     success: function(response){
-     for(let status in response){
-      console.log(status);
-     }
+      this.status = response.status;
     },
     contentType: "application/json; charset=utf-8",
     dataType: "json",
