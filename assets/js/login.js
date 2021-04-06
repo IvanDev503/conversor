@@ -6,6 +6,7 @@ function authenticate() {
   var password = document.getElementById("password").value;
   loggedIn = login(user, password);
   if(this.status === true){
+    console.log("Hi! my dear dev! I'm so happy to be created by you! Love U! :3")
     nextPage();
   }
 }
@@ -23,7 +24,7 @@ function login(user, password) {
     url: url,
     data: JSON.stringify(dataLogin),
     success: function(response){
-      this.status = response.status;
+      this.status = response.success;
     },
     contentType: "application/json; charset=utf-8",
     dataType: "json",
