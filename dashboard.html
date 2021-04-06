@@ -23,6 +23,7 @@
     ></script>
     <!-- Also available via npm as netlify-auth-providers -->
     <script src="https://unpkg.com/netlify-auth-providers"></script>
+    <script src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
 
     <link href="assets/css/style.css" rel="stylesheet" />
   </head>
@@ -32,6 +33,8 @@
     <nav class="navbar" style="background-color: transparent">
       <!-- Navbar content -->
       <img src="./assets/img/TheWorldWithTOC-Logo-89x39.png" />
+      <input type="submit" value="Logout" id="logout" class="btn toc-style" onClick={() => "handleLogout()"}>
+      <input type="button"  class="btn toc-style" onclick="authenticate()" value="Login" /><br />
     </nav>
 
     <div style="position: relative; text-align: center">
@@ -69,7 +72,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.0/jszip.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.21.15/plugins/export/libs/FileSaver.js/FileSaver.min.js"></script>
     <script type="text/javascript" src="assets/js/scriptcv.js"></script>
-
+    <script type="text/javascript" src="assets/js/login.js"></script>
+    
     <script>
       function download() {
         var zip = new JSZip();

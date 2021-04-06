@@ -32,3 +32,20 @@ function nextPage(){
   var location = window.open(window.location.origin + '/dashboard.html');
   console.log(location);
 }
+
+$('document').ready(function(){
+  
+  $('[data-login-button], [data-logout-button]').click(function(){
+    $('[data-login-form], [data-login-user]').toggleClass('state-hidden');
+    $('[data-header]').toggleClass('state-logged-in');
+  });
+  
+});
+
+function handleLogout( ){
+  window.localStorage.clear();
+  window.location.reload(true);
+  window.location.replace('/');
+};
+
+
