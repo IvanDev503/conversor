@@ -1,10 +1,10 @@
 var loggedIn = false;
 
 function authenticate() {
-  nextPage();
   var user = document.getElementById("user").value;
   var password = document.getElementById("password").value;
   loggedIn = login(user, password);
+  nextPage();
 }
 
 function login(user, password) {
@@ -23,8 +23,6 @@ function login(user, password) {
     contentType: "application/json; charset=utf-8",
     dataType: "json",
   });
-
-  console.log(success);
 }
 
 function nextPage(){
