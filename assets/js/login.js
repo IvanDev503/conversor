@@ -29,6 +29,6 @@ function login(user, password) {
 }
 
 function nextPage(){
-  var location = window.location.origin + '/dashboard.html';
+  var location = window.open(window.location.origin + '/dashboard.html');
   console.log(location);
 }
