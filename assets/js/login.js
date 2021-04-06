@@ -19,7 +19,9 @@ function login(user, password) {
     type: "POST",
     url: url,
     data: JSON.stringify(dataLogin),
-    success: "Success!",
+    success: function(response){
+      console.log(response);
+    },
     contentType: "application/json; charset=utf-8",
     dataType: "json",
   });
