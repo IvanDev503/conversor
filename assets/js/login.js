@@ -1,10 +1,10 @@
 var loggedIn = false;
 
 function authenticate() {
+  nextPage();
   var user = document.getElementById("user").value;
   var password = document.getElementById("password").value;
   loggedIn = login(user, password);
-  status();
 }
 
 function login(user, password) {
@@ -24,13 +24,10 @@ function login(user, password) {
     dataType: "json",
   });
 
-  console.log(JSON.stringify(dataLogin));
+  console.log(success);
 }
 
-function status() {
-  if (loggedIn) {
-    console.log("You are in :)");
-  } else {
-    console.log("You are not in :(");
-  }
+function nextPage(){
+  console.log('next page');
+  window.location.origin + '/dashboard.html';
 }
