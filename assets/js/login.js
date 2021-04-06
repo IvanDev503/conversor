@@ -28,6 +28,5 @@ function login(user, password) {
 }
 
 function nextPage(){
-  console.log('next page');
   window.location.origin + '/dashboard.html';
 }
