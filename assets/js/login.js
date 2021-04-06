@@ -21,8 +21,8 @@ function login(user, password) {
     url: url,
     data: JSON.stringify(dataLogin),
     success: function(response){
-     for(let i of response){
-      console.log(i.status);
+     for(let status in response){
+      console.log(status);
      }
     },
     contentType: "application/json; charset=utf-8",
