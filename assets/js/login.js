@@ -1,4 +1,5 @@
 var loggedIn = false;
+var status;
 
 function authenticate() {
   var user = document.getElementById("user").value;
@@ -20,7 +21,7 @@ function login(user, password) {
     url: url,
     data: JSON.stringify(dataLogin),
     success: function(response){
-      console.log(response);
+     console.log(response.status);
     },
     contentType: "application/json; charset=utf-8",
     dataType: "json",
