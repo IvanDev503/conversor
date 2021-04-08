@@ -21,6 +21,7 @@ function login(user, password) {
     success: function(response){
       if(response.success === true){
         nextPage();
+        //aqui poner cookie
       }
     },
     contentType: "application/json; charset=utf-8",
@@ -48,4 +49,16 @@ function handleLogout( ){
   window.location.replace('/');
 };
 
+$( document ).ready(function() {
+  if (loggedIn = true) {
+    window.location="/";
+  }
+});
 
+/* function ledIn() {
+  console.log(loggedIn);
+  if (loggedIn) {
+    window.locationf="https://www.google.com";
+ 
+  }
+} */
