@@ -49,12 +49,12 @@ function handleLogout( ){
   window.location.replace('/');
 };
 
-$( document ).ready(function() {
-  if (loggedIn = true) {
-    //window.location="/";
-    handleLogout();
-  }
-});
+// $( document ).ready(function() {
+//   if (loggedIn = true) {
+//     //window.location="/";
+//     handleLogout();
+//   }
+// });
 
 /* function ledIn() {
   console.log(loggedIn);
