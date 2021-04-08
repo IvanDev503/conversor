@@ -51,7 +51,8 @@ function handleLogout( ){
 
 $( document ).ready(function() {
   if (loggedIn = true) {
-    window.location="/";
+    //window.location="/";
+    handleLogout();
   }
 });
 
