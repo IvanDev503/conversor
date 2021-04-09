@@ -25,8 +25,28 @@
     <script src="https://unpkg.com/netlify-auth-providers"></script>
     
     <link href="assets/css/style.css" rel="stylesheet" />
+    <script>
+      function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+      }
+      return null;
+      }
+    </script>
   </head>
   <body>
+    <script>
+      check = getCookie('logcookie');
+      console.log("hola");
+      console.log(check);
+      if (check === null) {
+        window.location='/';
+      }
+    </script>
     <!-- As a heading -->
 
     <nav class="navbar" style="background-color: transparent">
@@ -43,6 +63,7 @@
       >
         <input
           type="file"
+
           id="filesx"
           name="filesx[]"
           onchange="readmultifiles(this.files)"
