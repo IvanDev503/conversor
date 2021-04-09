@@ -26,6 +26,7 @@
     
     <link href="assets/css/style.css" rel="stylesheet" />
     <script>
+      ///////////// Funciones para eliminar cookies //////////////
       function getCookie(name) {
       var nameEQ = name + "=";
       var ca = document.cookie.split(';');
@@ -36,13 +37,13 @@
       }
       return null;
       }
+      ////////////////////////////////////////////////////////////
     </script>
   </head>
   <body>
     <script>
+      // Verificar si cooki existe, si no, ir a login
       check = getCookie('logcookie');
-      console.log("hola");
-      console.log(check);
       if (check === null) {
         window.location='/';
       }
