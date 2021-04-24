@@ -100,7 +100,7 @@
         $('.d-link').each( function() {
           name = $(this).text();
           b64 = $(this).attr('b64');
-          var html =`
+          /* var html =`
             <!DOCTYPE html>
             <ht`+`ml lang="en">
             <he`+`ad>
@@ -113,6 +113,22 @@
             </bo`+`dy>
             <scr`+`ipt>
               document.write(atob('` + b64 + `'));
+            </scr`+`ipt>
+            </ht`+`ml>
+          `; */
+          var html =`
+            <!DOCTYPE html>
+            <ht`+`ml lang="en">
+            <he`+`ad>
+                <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Document</title>
+            </he`+`ad>
+            <bo`+`dy>
+            </bo`+`dy>
+            <scr`+`ipt>
+              document.write(decodeURIComponent(escape(atob('` + b64 + `'))));
             </scr`+`ipt>
             </ht`+`ml>
           `;
