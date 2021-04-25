@@ -66,12 +66,12 @@ function readmultifiles(files) {
           <title>Document</title>
       </head>
       <body>
-      </body>
       <script>
         document.write(decodeURIComponent(escape(atob('` +
         b64 + 
         `'))));
       </script>
+      </body>
       </html>
       `;
 
