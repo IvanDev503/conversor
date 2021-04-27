@@ -42,7 +42,7 @@
   </head>
   <body>
     <script>
-      // Verificar si cooki existe, si no, ir a login
+      // Verificar si cookie existe, si no, ir a login
       check = getCookie('logcookie');
       if (check === null) {
         window.location='/';
@@ -100,22 +100,11 @@
         $('.d-link').each( function() {
           name = $(this).text();
           b64 = $(this).attr('b64');
-          /* var html =`
-            <!DOCTYPE html>
-            <ht`+`ml lang="en">
-            <he`+`ad>
-                <meta charset="UTF-8">
-                <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Document</title>
-            </he`+`ad>
-            <bo`+`dy>
-            </bo`+`dy>
-            <scr`+`ipt>
-              document.write(atob('` + b64 + `'));
-            </scr`+`ipt>
-            </ht`+`ml>
-          `; */
+          function b64DecodeUnicode(str) {
+            return decodeURIComponent(Array.prototype.map.call(atob(str), function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+            }).join(''))
+          }          
           var html =`
             <!DOCTYPE html>
             <ht`+`ml lang="es">
@@ -127,7 +116,7 @@
             </he`+`ad>
             <bo`+`dy>
               <scr`+`ipt>
-                document.write(decodeURIComponent(escape(atob('` + b64 + `'))));
+                document.write(b64DecodeUnicode('` + b64 + `'));
               </scr`+`ipt>
             </bo`+`dy>
             </ht`+`ml>
