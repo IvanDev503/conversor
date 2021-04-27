@@ -50,7 +50,6 @@ function login(user, password) {
 
 function nextPage(){
   var location = window.open(window.location.origin + '/dashboard.html','_self');
-  console.log(location);
 }
 
 $('document').ready(function(){

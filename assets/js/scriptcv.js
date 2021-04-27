@@ -38,7 +38,6 @@ function readmultifiles(files) {
         return btoa(String.fromCharCode(...new Uint8Array(codeUnits.buffer)));
       }
       b64 = b64EncodeUnicode(bin);
-      console.log("b64", b64);
       //get file content
       // do sth with text
       var li = document.createElement("li");
@@ -99,7 +98,6 @@ function readmultifiles(files) {
         });
       }
       get_hrefs(links);
-      console.log(links);
     };
     //console.log("file", file);
     reader.readAsBinaryString(file);
