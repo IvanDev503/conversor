@@ -25,23 +25,38 @@ function readmultifiles(files) {
 
     var ul = document.createElement("ul");
     document.getElementById("bag").appendChild(ul);
-    reader.onload = function (e) {
-      var bin = escape(e.target.result);
-      var unbin = e.target.result;
+
+      // var bin = escape(e.target.result);
+      // var unbin = e.target.result;
       // var decrypt = document.write(unescape(bin));
-      //b64 = btoa(unescape(encodeURIComponent(e.target.result)));
-      function b64EncodeUnicode(string) {
-        const codeUnits = new Uint16Array(string.length);
-        for (let i = 0; i < codeUnits.length; i++) {
-          codeUnits[i] = string.charCodeAt(i);
-        }
-        return btoa(String.fromCharCode(...new Uint8Array(codeUnits.buffer)));
-      }
-      b64 = b64EncodeUnicode(bin);
+      file.text().then(text => {
+        b64 = escape(text);
+        //console.log("b64", b64);
+
+      
       //get file content
       // do sth with text
       var li = document.createElement("li");
       var a = document.createElement("a");
+      /* var html =
+        `
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+      </head>
+      <body>
+      </body>
+      <script>
+        document.write(atob('` +
+        b64 + 
+        `'));
+      </script>
+      </html>
+      `; */
 
       var html =
         `
@@ -55,15 +70,9 @@ function readmultifiles(files) {
       </head>
       <body>
       <script>
-      function b64DecodeUnicode(encoded) {
-        binary = atob(encoded)
-        const bytes = new Uint8Array(binary.length);
-        for (let i = 0; i < bytes.length; i++) {
-          bytes[i] = binary.charCodeAt(i);
-        }
-        return String.fromCharCode(...new Uint16Array(bytes.buffer));
-      }      
-      document.write(decodeURIComponent(b64DecodeUnicode('` + b64 + `')));
+        document.write(unescape('` +
+        b64 + 
+        `'));
       </script>
       </body>
       </html>
@@ -98,10 +107,11 @@ function readmultifiles(files) {
         });
       }
       get_hrefs(links);
-    };
-    //console.log("file", file);
-    reader.readAsBinaryString(file);
+      console.log(links);
 
+      //console.log("file", file);
+    reader.readAsBinaryString(file);
+  });
     return
   }
 

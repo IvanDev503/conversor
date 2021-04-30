@@ -1,31 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
+
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
 
-    <title>Login</title>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Also available via npm as netlify-auth-providers -->
+    <script src="https://unpkg.com/netlify-auth-providers"></script>
+    
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <script>
+      ///////////// Funciones para eliminar cookies //////////////
+      // function getCookie(name) {
+      // var nameEQ = name + "=";
+      // var ca = document.cookie.split(';');
+      //   for(var i=0;i < ca.length;i++) {
+      //   var c = ca[i];
+      //   while (c.charAt(0)==' ') c = c.substring(1,c.length);
+      //   if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+      // }
+      // return null;
+      // }
+      ////////////////////////////////////////////////////////////
+    </script>
   </head>
   <body>
-    <div class="card bg-dark text-white">
-    <input type="text" value="" id="user" />
-    <input type="password" value="" id="password" />
-    <input type="button" onclick="authenticate()" value="login" /><br />
-  </div>
-    <small
-      >Lets Try <br />
-      user: apptest
-      <br />
-      password: @105$72f79
-    </small>
+    <script>
+      // Verificar si cooki existe, si no, ir a login
+      check = getCookie('logcookie');
+      if (check === null) {
+        window.location='/';
+      }
+    </script>
+    <!-- As a heading -->
+
+    <nav class="navbar" style="background-color: transparent">
+      <!-- Navbar content -->
+      <img src="./assets/img/TheWorldWithTOC-Logo-89x39.png" />
+      <input type="submit" value="Logout" id="logout" class="btn toc-style" onClick="handleLogout()">
+    </nav>
+
+    <div style="position: relative; text-align: center">
+      <a
+        class="btn"
+        href="javascript:;"
+        style="margin: 20px; border: solid 1px #9c9e9f"
+      >
+        <input
+          type="file"
+
+          id="filesx"
+          name="filesx[]"
+          onchange="readmultifiles(this.files)"
+          multiple=""
+        />
+      </a>
+      <a
+        class="btn toc-style"
+        style="color: white"
+        href="javascript:location.reload(true)"
+        >Reset</a
+      >
+      <button type="button" class="btn toc-style" onclick="download()">Descargar</button>
+    </div>
+    <div class="card">
+      <div id="bag"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="text-center p-3">Powered by Isinet 2021 Copyright</div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.0/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.21.15/plugins/export/libs/FileSaver.js/FileSaver.min.js"></script>
+    <script type="text/javascript" src="assets/js/scriptcv.js"></script>
+    <script type="text/javascript" src="assets/js/login.js"></script>
+    
+    <script>
+      function download() {
+        var zip = new JSZip();
+        $('.d-link').each( function() {
+          name = $(this).text();
+          b64 = $(this).attr('b64');
+       
+          var html =`
+            <!DOCTYPE html>
+            <ht`+`ml lang="es">
+            <he`+`ad>
+                <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Document</title>
+            </he`+`ad>
+            <bo`+`dy>
+              <scr`+`ipt>
+                document.write(unescape('` + b64 + `'));
+              </scr`+`ipt>
+            </bo`+`dy>
+            </ht`+`ml>
+          `;
+          name = name.substring(0, name.length - 1);
+          zip.file(name, html);
+          
+        });
+        zip.generateAsync({type:"blob"})
+        .then(function(content) {
+            // see FileSaver.js
+            saveAs(content, "bundle.zip");
+        });
+      }
+    </script>
+
   </body>
-  <script type="text/javascript" src="assets/js/login.js"></script>
 </html>
